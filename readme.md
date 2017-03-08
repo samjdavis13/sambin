@@ -4,8 +4,20 @@ A place to store (and easily install) all of my commonly used scripts.
 
 ### Usage
 
+
+Install everything:
 ```shell
 bash install.sh
+```
+
+Only install new scripts:
+```shell
+bash install.sh -n
+```
+
+Only install one script (prompts for user confirmation)
+```shell
+bash install.sh -o
 ```
 
 Enjoy! ✌🏻
