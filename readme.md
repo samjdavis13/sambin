@@ -2,6 +2,14 @@
 
 A place to store (and easily install) all of my commonly used scripts.
 
+### Usage
+
+```shell
+bash install.sh
+```
+
+Enjoy! ✌🏻
+
 
 ### Licence
 ```
