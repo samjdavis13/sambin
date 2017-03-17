@@ -57,7 +57,7 @@ wp plugin install --activate https://github.com/wp-sync-db/wp-sync-db/archive/ma
 # Ask for theme name
 echo "Please enter a name for the theme: "
 read theme_name
-git clone https://sd-forge@bitbucket.org/forgecollective/sam-bedrock.git wp-content/themes/$theme_name
+git clone https://github.com/weareforge/sam-bedrock.git wp-content/themes/$theme_name
 
 # Activate it
 wp theme activate $theme_name
