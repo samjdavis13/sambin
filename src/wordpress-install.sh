@@ -47,7 +47,7 @@ git clone https://sd-forge@bitbucket.org/forgecollective/forge-tweaks.git wp-con
 wp plugin activate forge-tweaks
 
 # Download and install my list of frequently used plugins
-wp plugin install --activate https://github.com/wp-sync-db/wp-sync-db/archive/master.zip aryo-activity-log swifty-page-manager backupwordpress reveal-ids-for-wp-admin-25
+wp plugin install --activate "https://github.com/wp-sync-db/wp-sync-db/archive/master.zip" "https://connect.advancedcustomfields.com/index.php?p=pro&a=download&k=b3JkZXJfaWQ9ODExNTV8dHlwZT1wZXJzb25hbHxkYXRlPTIwMTYtMDUtMDkgMDI6NDA6MjU=" aryo-activity-log swifty-page-manager backupwordpress reveal-ids-for-wp-admin-25
 
 
 ##########
