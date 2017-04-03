@@ -20,6 +20,11 @@ Only install one script (prompts for user confirmation)
 bash install.sh -o
 ```
 
+Force install all scripts (may be dangerous, use at your own risk)
+```shell
+bash install.sh -f
+```
+
 Enjoy! ✌🏻
 
 

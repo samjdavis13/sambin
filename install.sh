@@ -32,14 +32,18 @@ installSingleScript() {
         safetocontinue=0
 
         if [ "$onlyNewScripts" != true ]; then
-            echo "${textGreen}$filebasename${textReset} already exists in $bindir."
-            read -p "Do you want to replace it? (y/n) " continue
 
-            if [ "$continue" = "y" ]; then
+            if [ "$forceInstallEverything" != true ]; then
+                echo "${textGreen}$filebasename${textReset} already exists in $bindir."
+                read -p "Do you want to replace it? (y/n) " continue
+            fi
+
+            if [ "$forceInstallEverything" = true ] || [ "$continue" = "y" ]; then
                 safetocontinue=1
                 echo "Removing $bindir/$filebasename"
                 rm $bindir/$filebasename
             fi
+            
         fi
 
     fi
@@ -62,13 +66,16 @@ installSingleScript() {
 # Read Flags
 #-------------------------------------------------------------------------------
 
-while getopts ":no" option; do
+while getopts ":fno" option; do
     case "${option}" in
         n)
             onlyNewScripts=true
             ;;
         o)
             onlyOneScript=true
+            ;;
+        f)
+            forceInstallEverything=true
             ;;
     esac
 done
@@ -87,6 +94,8 @@ if [ "$onlyNewScripts" = true ]; then
     echo "Attempting to install new shell scripts to $bindir"
 elif [ "$onlyOneScript" = true ]; then
     echo "Attempting to install a single shell script to $bindir"
+elif [ "$forceInstallEverything" = true ]; then
+    echo "Forcing install of all shell scripts to $bindir"
 else
     echo "Attempting to install all shell scripts to $bindir"
 fi
