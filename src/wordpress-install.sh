@@ -55,9 +55,22 @@ wp plugin install --activate "https://github.com/wp-sync-db/wp-sync-db/archive/m
 ##########
 
 # Ask for theme name
-echo "Please enter a name for the theme: "
+echo "Please enter a name for the theme slug: "
 read theme_name
 git clone https://github.com/weareforge/sam-bedrock.git wp-content/themes/$theme_name
+
+# Create style.css with all necessary comment fields
+echo "Enter client name to be used in Stylesheet comments"
+read client_name
+cat > wp-content/themes/$theme_name/style.css <<EOF
+/*!
+Theme Name: $client_name
+Theme URI: http://weareforge.co
+Description: Custom WordPress theme made for $client_name by Forge
+Version: 1.0.0
+Author: Forge <hello@weareforge.co>
+*/
+EOF
 
 # Activate it
 wp theme activate $theme_name
