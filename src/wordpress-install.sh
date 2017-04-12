@@ -4,6 +4,7 @@
 # Download Wordpress Core #
 ###########################
 
+echo "Downloading WordPress Core"
 wp core download --locale=en_AU;
 
 
@@ -14,9 +15,12 @@ wp core download --locale=en_AU;
 # Ask for DB Name
 echo "Please enter new db name: "
 read database_name
+
+echo "Configuring WP"
 wp core config --dbname=$database_name --dbuser=root --dbpass='admin' --dbprefix=wp_forge_;
 
 # Create the database
+echo "Creating the Database"
 mysql -uroot -padmin -e "create database $database_name"
 
 
@@ -24,7 +28,7 @@ mysql -uroot -padmin -e "create database $database_name"
 # Install Wordpress Core #
 ##########################
 
-echo "Attempting to install wordpress..."
+echo "Installing WordPress"
 wp core install --prompt --skip-themes --skip-plugins
 
 
@@ -32,6 +36,7 @@ wp core install --prompt --skip-themes --skip-plugins
 # Remove site tagline #
 #######################
 
+echo "Setting blog description to nothing"
 wp option set blogdescription ""
 
 
@@ -40,13 +45,16 @@ wp option set blogdescription ""
 ###########
 
 # Delete unwanted plugins
+echo "Deleting unwanted plugins"
 wp plugin delete akismet hello
 
 # Download and activate Forge Tweaks Plugin
+echo "Installing Forge Tweaks"
 git clone https://sd-forge@bitbucket.org/forgecollective/forge-tweaks.git wp-content/plugins/forge-tweaks
 wp plugin activate forge-tweaks
 
 # Download and install my list of frequently used plugins
+echo "Insalling frequently used plugins"
 wp plugin install --activate "https://github.com/wp-sync-db/wp-sync-db/archive/master.zip" "https://connect.advancedcustomfields.com/index.php?p=pro&a=download&k=b3JkZXJfaWQ9ODExNTV8dHlwZT1wZXJzb25hbHxkYXRlPTIwMTYtMDUtMDkgMDI6NDA6MjU=" aryo-activity-log swifty-page-manager backupwordpress reveal-ids-for-wp-admin-25
 
 
@@ -73,9 +81,11 @@ Author: Forge <hello@weareforge.co>
 EOF
 
 # Activate it
+echo "Activating $theme_name"
 wp theme activate $theme_name
 
 # Remove unwanted themes
+echo "Removing unwanted themes"
 wp theme delete twentyseventeen twentysixteen twentyfifteen
 
 
