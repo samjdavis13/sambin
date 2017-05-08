@@ -48,14 +48,9 @@ wp option set blogdescription ""
 echo "Deleting unwanted plugins"
 wp plugin delete akismet hello
 
-# Download and activate Forge Tweaks Plugin
-echo "Installing Forge Tweaks"
-git clone https://sd-forge@bitbucket.org/forgecollective/forge-tweaks.git wp-content/plugins/forge-tweaks
-wp plugin activate forge-tweaks
-
 # Download and install my list of frequently used plugins
 echo "Insalling frequently used plugins"
-wp plugin install --activate "https://github.com/wp-sync-db/wp-sync-db/archive/master.zip" "https://connect.advancedcustomfields.com/index.php?p=pro&a=download&k=b3JkZXJfaWQ9ODExNTV8dHlwZT1wZXJzb25hbHxkYXRlPTIwMTYtMDUtMDkgMDI6NDA6MjU=" aryo-activity-log swifty-page-manager backupwordpress reveal-ids-for-wp-admin-25
+wp plugin install --activate "https://github.com/weareforge/forge-tweaks/archive/master.zip" "https://github.com/wp-sync-db/wp-sync-db/archive/master.zip" "https://connect.advancedcustomfields.com/index.php?p=pro&a=download&k=b3JkZXJfaWQ9ODExNTV8dHlwZT1wZXJzb25hbHxkYXRlPTIwMTYtMDUtMDkgMDI6NDA6MjU=" aryo-activity-log swifty-page-manager backupwordpress reveal-ids-for-wp-admin-25
 
 
 ##########
