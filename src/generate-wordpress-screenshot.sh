@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 FILE=screenshot.png
+
 if [ -f $FILE ]; then
    echo "File $FILE exists... deleting."
    rm $FILE;
@@ -13,3 +14,14 @@ webkit2png http://sams-mbp.local:5757 --ignore-ssl-check -C --clipwidth=1200 --c
 
 # Rename it to $FILE
 mv screenshot-clipped.png $FILE
+
+# Compress is with PNGQuant
+echo "Compressing $FILE"
+
+pngquant $FILE --ext -compressed.png
+
+# Delete uncompressed version
+rm $FILE
+
+# Rename compressed version
+mv screenshot-compressed.png $FILE
