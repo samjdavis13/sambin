@@ -1,3 +1,5 @@
+#!/bin/bash
+
 sitesAvailable='/etc/apache2/sites-available/'
 sitesDir='/var/www/'
 
