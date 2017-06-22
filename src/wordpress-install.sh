@@ -40,6 +40,14 @@ echo "Setting blog description to nothing"
 wp option set blogdescription ""
 
 
+###########################
+# Set Permalink Structure #
+###########################
+
+echo "Setting WP Permalink Structure"
+wp rewrite structure '/%year%/%monthnum%/%postname%/'
+
+
 ###########
 # Plugins #
 ###########
