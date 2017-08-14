@@ -10,7 +10,7 @@ else
 fi
 
 # Generate screenshot
-webkit2png http://sams-mbp.local:5757 --ignore-ssl-check -C --clipwidth=1200 --clipheight=900 --scale=0.75 --delay=2 -o screenshot
+webkit2png http://sjd.local:5757 --ignore-ssl-check -C --clipwidth=1200 --clipheight=900 --scale=0.75 --delay=2 -o screenshot
 
 # Rename it to $FILE
 mv screenshot-clipped.png $FILE
