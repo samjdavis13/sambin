@@ -10,10 +10,18 @@ else
 fi
 
 # Generate screenshot
-webkit2png http://sjd.local:5757 --ignore-ssl-check -C --clipwidth=1200 --clipheight=900 --scale=0.75 --delay=2 -o screenshot
+echo "Generating screenshot"
+webkit2png http://localhost:5757 --ignore-ssl-check -F  --delay=1 -o screenshot --width=1440 --height=1080
+
+# Crop it to just the top 2880x2160
+echo "Cropping screenshot"
+convert screenshot-full.png -crop 2880x2160+0+0 +repage screenshot-full.png
 
 # Rename it to $FILE
-mv screenshot-clipped.png $FILE
+mv screenshot-full.png $FILE
+
+# Resize it to 1440x900
+convert $FILE -resize 1440x900 $FILE
 
 # Compress is with PNGQuant
 echo "Compressing $FILE"
