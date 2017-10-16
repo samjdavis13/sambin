@@ -6,6 +6,8 @@
 
 bindir="/usr/local/bin"
 
+scriptTypes=".sh .fish"
+
 # Coloured Text
 textRed=`tput setaf 1`
 textGreen=`tput setaf 2`
@@ -22,8 +24,11 @@ installSingleScript() {
     # Get filename
     filename=$1
 
+    # Get extension
+    extension=$2
+
     # Get base file name
-    filebasename=$(basename $filename .sh)
+    filebasename=$(basename $filename $extension)
 
     # If file already exists in $bindir, delete it
     safetocontinue=1
@@ -43,7 +48,7 @@ installSingleScript() {
                 echo "Removing $bindir/$filebasename"
                 rm $bindir/$filebasename
             fi
-            
+
         fi
 
     fi
@@ -134,10 +139,10 @@ if [ "$onlyOneScript" = true ]; then
     exit;
 fi
 
-# Run the every scrip installer
-# Loop over every file in ./src
-for filename in ./src/*.sh; do
-
-    installSingleScript $filename
-
+# Run the every scrip installer\
+# Loop over every script type file in ./src
+for scriptType in $scriptTypes; do
+    for filename in ./src/*$scriptType; do
+        installSingleScript $filename $scriptType
+    done
 done
