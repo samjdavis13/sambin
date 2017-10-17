@@ -25,7 +25,7 @@ while set -q argv[1]
             __fish_print_help abbr
             exit
         case '-o' '--open'
-            set mode add
+            set mode open
         case '-c' '--close'
             set mode close
         case '*'
