@@ -5,7 +5,7 @@
 ###########################
 
 echo "Downloading WordPress Core"
-wp core download --locale=en_AU;
+wp core download;
 
 
 ########################
@@ -28,25 +28,44 @@ mysql -uroot -padmin -e "create database $database_name"
 # Install Wordpress Core #
 ##########################
 
+# Get url for this site
+echo "Please enter the URL for this site: "
+read site_url
+
+echo "Please enter the title for this site: "
+read site_title
+
+echo "Please enter the admin user password: "
+read admin_password
+
 echo "Installing WordPress"
-wp core install --prompt --skip-themes --skip-plugins
+wp core install --skip-themes --skip-plugins --url="$site_url" --title="$site_title" --admin_user="Forge" --admin_password="$admin_password" --admin_email="development@weareforge.com.au" --skip-email
 
 
-#######################
-# Remove site tagline #
-#######################
+###############################
+# Set some default WP Options #
+###############################
 
+# Remove site tagline
 echo "Setting blog description to nothing"
 wp option set blogdescription ""
 
-
-###########################
-# Set Permalink Structure #
-###########################
-
+# Set Permalink Structure
 echo "Setting WP Permalink Structure"
 wp rewrite structure '/%year%/%monthnum%/%postname%/'
 
+# Remove the default 'post'
+echo "Deleting the default post"
+wp post delete 1
+
+# Rename the default page to "Home"
+echo "Renaming default page to Home"
+wp post update 2 --post_title="Home" --post_name="home"
+
+# Set static home page
+echo "Setting a static home page"
+wp option update show_on_front page
+wp option update page_on_front 2
 
 ###########
 # Plugins #
