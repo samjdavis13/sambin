@@ -11,7 +11,7 @@ fi
 
 # Generate screenshot
 echo "Generating screenshot"
-webkit2png http://localhost:5757 --ignore-ssl-check -F  --delay=1 -o screenshot --width=1440 --height=1080
+webkit2png http://localhost:5757 --ignore-ssl-check -F  --delay=2 -o screenshot --width=1440 --height=1080
 
 # Crop it to just the top 2880x2160
 echo "Cropping screenshot"
