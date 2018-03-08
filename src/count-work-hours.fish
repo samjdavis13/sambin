@@ -14,7 +14,7 @@ for line in $clipboard
     
     # echo $line
     # Only match lines that match the following regex
-    if echo $line | grep -Eq '^\d+\.\d{2}'
+    if echo $line | grep -Eq '^\d+\.\d'
         set hourLogs $hourLogs (echo $line)
     end
 
