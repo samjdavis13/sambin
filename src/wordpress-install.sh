@@ -17,7 +17,7 @@ echo "Please enter new db name: "
 read database_name
 
 echo "Configuring WP"
-wp core config --dbname=$database_name --dbuser=root --dbpass='admin' --dbprefix=wp_forge_;
+wp core config --dbname=$database_name --dbuser=root --dbpass='admin' --dbprefix=wp_bright_;
 
 # Create the database
 echo "Creating the Database"
@@ -39,7 +39,7 @@ echo "Please enter the admin user password: "
 read admin_password
 
 echo "Installing WordPress"
-wp core install --skip-themes --skip-plugins --url="$site_url" --title="$site_title" --admin_user="Forge" --admin_password="$admin_password" --admin_email="development@weareforge.com.au" --skip-email
+wp core install --skip-themes --skip-plugins --url="$site_url" --title="$site_title" --admin_user="Bright" --admin_password="$admin_password" --admin_email="development@brightagency.com.au" --skip-email
 
 
 ###############################
@@ -95,10 +95,10 @@ read client_name
 cat > wp-content/themes/$theme_name/style.css <<EOF
 /*!
 Theme Name: $client_name
-Theme URI: http://weareforge.co
-Description: Custom WordPress theme made for $client_name by Forge
+Theme URI: http://brightagency.com.au
+Description: Custom WordPress theme made for $client_name by Bright Agency
 Version: 1.0.0
-Author: Forge <hello@weareforge.co>
+Author: Bright Agency <hello@brightagency.com.au>
 */
 EOF
 
