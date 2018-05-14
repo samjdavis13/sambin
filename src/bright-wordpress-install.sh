@@ -39,7 +39,7 @@ echo "Please enter the admin user password: "
 read admin_password
 
 echo "Installing WordPress"
-wp core install --skip-themes --skip-plugins --url="$site_url" --title="$site_title" --admin_user="Sam" --admin_password="$admin_password" --admin_email="sam@sjd.co" --skip-email
+wp core install --skip-themes --skip-plugins --url="$site_url" --title="$site_title" --admin_user="Bright" --admin_password="$admin_password" --admin_email="development@brightagency.com.au" --skip-email
 
 
 ###############################
@@ -77,7 +77,7 @@ wp plugin delete akismet hello
 
 # Download and install my list of frequently used plugins
 echo "Insalling frequently used plugins"
-wp plugin install --activate "https://github.com/wp-sync-db/wp-sync-db/archive/master.zip" "https://connect.advancedcustomfields.com/index.php?p=pro&a=download&k=b3JkZXJfaWQ9ODExNTV8dHlwZT1wZXJzb25hbHxkYXRlPTIwMTYtMDUtMDkgMDI6NDA6MjU=" wp-nested-pages backupwordpress
+wp plugin install --activate "https://github.com/brightagency/forge-tweaks/archive/master.zip" "https://github.com/wp-sync-db/wp-sync-db/archive/master.zip" "https://connect.advancedcustomfields.com/index.php?p=pro&a=download&k=b3JkZXJfaWQ9ODExNTV8dHlwZT1wZXJzb25hbHxkYXRlPTIwMTYtMDUtMDkgMDI6NDA6MjU=" aryo-activity-log wp-nested-pages backupwordpress reveal-ids-for-wp-admin-25
 
 
 ##########
@@ -95,10 +95,10 @@ read client_name
 cat > wp-content/themes/$theme_name/style.css <<EOF
 /*!
 Theme Name: $client_name
-Theme URI: http://sjd.co
-Description: Custom WordPress theme made for $client_name by Sam Davis
+Theme URI: http://brightagency.com.au
+Description: Custom WordPress theme made for $client_name by Bright Agency
 Version: 1.0.0
-Author: Sam Davis <sam@sjd.co>
+Author: Bright Agency <hello@brightagency.com.au>
 */
 EOF
 
